@@ -2,13 +2,11 @@ package com.nonotion.nonotion.Entities;
 
 import java.util.List;
 
-import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 
 @Entity
 public class Usuario {
@@ -21,12 +19,10 @@ public class Usuario {
     private String senha;
     private Boolean status;
 
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "docTexto_id")
+    @OneToMany(mappedBy = "usuario")
     private List<DocTexto> docTexto;
 
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "listaTarefa_id")
+    @OneToMany(mappedBy = "usuario")
     private List<ListaTarefas> listaTarefa;
 
     public Usuario(int id, String nome, String email, String senha, List<DocTexto> docTexto,

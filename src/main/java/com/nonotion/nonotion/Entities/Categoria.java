@@ -17,7 +17,7 @@ public class Categoria {
     private int id;
     private String descricao;
 
-    @OneToMany(mappedBy = "docTexto", fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "categoria", fetch = FetchType.EAGER)
     private List<DocTexto> docTexto;
 
     public Categoria(int id, String descricao, List<DocTexto> docTexto) {

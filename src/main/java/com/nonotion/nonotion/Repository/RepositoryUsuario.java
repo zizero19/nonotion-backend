@@ -7,5 +7,5 @@ import com.nonotion.nonotion.Entities.Usuario;
 
 @Repository
 public interface RepositoryUsuario extends JpaRepository<Usuario, Integer> {
-
+    Usuario findByNomeAndSenha(String nome, String senha);
 }
